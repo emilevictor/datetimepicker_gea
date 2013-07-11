@@ -8,14 +8,22 @@ class FormtasticDateTimePickerInput < Formtastic::Inputs::StringInput
       options[:label] = {:for => input_html_options[:id],
                           :class => "control-label"}
 
-      '<div class="text control-group">'.html_safe <<
-      (render_label? ? builder.label(input_name, label_text, label_from_options) : "") <<
-      '<div class="controls">'.html_safe <<
-      before_dtp_html <<
-      builder.text_field(method, input_html_options) <<
-      after_dtp_html <<
-      js_because_of_jquery_requirements <<
-      "</div></div>".html_safe
+      in_modal = input_html_options[:data-in-modal] ? input_html_options.delete(:data-in-modal) : nil
+      close_javascript_support = input_html_options[:data-close-js-support] ? input_html_options.delete(:data-close-js-support) : nil
+      
+      out = '<div class="text control-group">'
+      out << (render_label? ? builder.label(input_name, label_text, label_from_options) : "")
+      out << '<div class="controls">'
+      out << before_dtp_html
+      out << builder.text_field(method, input_html_options)
+      out << after_dtp_html
+
+      if in_modal || close_javascript_support
+        out << js_because_of_jquery_requirements
+      end
+
+      out << "</div></div>"
+      out.html_safe
     end
   end
 
@@ -25,7 +33,7 @@ class FormtasticDateTimePickerInput < Formtastic::Inputs::StringInput
   def before_dtp_html
     attribute_id = (input_name.to_s + "_id")
     html = '<div id="'+attribute_id+'" class="input-append date datetimepicker_gea">'
-    html.html_safe
+    html
   end
 
   def after_dtp_html
@@ -33,16 +41,14 @@ class FormtasticDateTimePickerInput < Formtastic::Inputs::StringInput
     html = "<span class=\"add-on\">"
     html << "<i data-time-icon=\"icon-time\" data-date-icon=\"icon-calendar\">"
     html << "</i>" << "</span>" << "</div>"
-    html.html_safe
+    html
   end
 
   def js_because_of_jquery_requirements
     attribute_id = (input_name.to_s + "_id")
     html = '<script type="text/javascript">'
-
     html << "$(function() { $('.datetimepicker_gea').datetimepicker({language: 'en-AU'});});"
-
     html << "</script>"
-    html.html_safe
+    html
   end
 end
