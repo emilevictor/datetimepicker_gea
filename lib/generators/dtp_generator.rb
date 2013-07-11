@@ -12,9 +12,8 @@ class DtpGenerator < Rails::Generators::Base
     copy_file "date_time_picker_input.rb", "app/inputs/date_time_picker_input.rb"
   end
 
-  def add_js_line_to_application_js
-
-
+  def add_js_file
+    copy_file "datetimepicker_gea.js.coffee", "app/assets/javascripts/datetimepicker_gea.js.coffee"
   end
 
 end
