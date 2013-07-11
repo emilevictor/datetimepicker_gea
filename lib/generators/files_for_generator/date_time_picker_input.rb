@@ -5,8 +5,8 @@ class DateTimePickerInput < SimpleForm::Inputs::StringInput
     out = ''
     date_format = input_html_options[:date_format] ? input_html_options.delete(:date_format) : "dd/MM/yyyy hh:mm:ss"
     default_value = input_html_options[:default_value] ? input_html_options.delete(:default_value) : ""
-    in_modal = input_html_options[:data-in-modal] ? input_html_options.delete(:data-in-modal) : nil
-    close_javascript_support = input_html_options[:data-close-js-support] ? input_html_options.delete(:data-close-js-support) : nil
+    in_modal = input_html_options["data-in-modal"] ? input_html_options.delete("data-in-modal") : nil
+    close_javascript_support = input_html_options["data-close-js-support"] ? input_html_options.delete("data-close-js-support") : nil
     attribute_id = (attribute_name.to_s + "_id")
 
     input_html_options["data-format"] = date_format

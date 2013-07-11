@@ -8,8 +8,8 @@ class FormtasticDateTimePickerInput < Formtastic::Inputs::StringInput
       options[:label] = {:for => input_html_options[:id],
                           :class => "control-label"}
 
-      in_modal = input_html_options[:data-in-modal] ? input_html_options.delete(:data-in-modal) : nil
-      close_javascript_support = input_html_options[:data-close-js-support] ? input_html_options.delete(:data-close-js-support) : nil
+      in_modal = input_html_options["data-in-modal"] ? input_html_options.delete("data-in-modal") : nil
+      close_javascript_support = input_html_options["data-close-js-support"] ? input_html_options.delete("data-close-js-support") : nil
       
       out = '<div class="text control-group">'
       out << (render_label? ? builder.label(input_name, label_text, label_from_options) : "")
