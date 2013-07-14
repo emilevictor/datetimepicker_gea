@@ -1,3 +1,4 @@
+require_dependency 'application'
 
 #Provide the form helper in application_helper.rb
 ApplicationHelper.class_eval do
