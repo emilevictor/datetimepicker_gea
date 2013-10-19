@@ -1,11 +1,11 @@
 unless defined?(ApplicationHelper).nil?
-  
+
   #Provide the form helper in application_helper.rb
   ApplicationHelper.class_eval do
-    
+
     #Inserts a datetimepicker with some options into a view.
     def date_time_picker(name_of_form_element,id_of_form_element,default_value="",date_format="dd/MM/yyyy hh:mm:ss",style="display:block;")
-      
+
       raise "Name of form element not provided" if !name_of_form_element
       raise "Id of Form element not provided" if !id_of_form_element
 

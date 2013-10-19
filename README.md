@@ -34,7 +34,7 @@ or if you're having problems (or using less) require it in your main stylesheet 
 Put the following in your gemfile.
 
 ```ruby
-gem 'datetimepicker_gea', :git => "git@github.com:emilevictor/datetimepicker_gea.git"
+gem 'datetimepicker_gea'
 ```
 
 Run ```bundle install```

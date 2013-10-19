@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
   s.version     = DatetimepickerGea::VERSION
   s.authors     = ["Emile Victor"]
   s.email       = ["e@emilevictor.com"]
-  s.homepage    = "http://www.gea-interactive.com.au/"
+  s.homepage    = "http://www.emilevictor.com/"
   s.summary     = "DateTimePicker_gea is a gem which simplifies the integration of datetimepicker into simple_form, formtastic and the default form."
   s.description = "Using three different methods, you can easily insert a rails datetimepicker into your project."
 
@@ -18,5 +18,4 @@ Gem::Specification.new do |s|
 
   s.add_dependency "rails", "~> 3.2"
   s.add_dependency "bootstrap-datetimepicker-rails"
-  s.add_development_dependency "sqlite3"
 end
